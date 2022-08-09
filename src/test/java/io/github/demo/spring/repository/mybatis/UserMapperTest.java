@@ -1,6 +1,6 @@
 package io.github.demo.spring.repository.mybatis;
 
-import io.github.demo.spring.domain.User;
+import io.github.demo.spring.domain.user.User;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;

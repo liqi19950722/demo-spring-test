@@ -1,6 +1,6 @@
 package io.github.demo.spring.repository.mybatis;
 
-import io.github.demo.spring.domain.User;
+import io.github.demo.spring.domain.user.User;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

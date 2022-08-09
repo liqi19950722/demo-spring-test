@@ -7,9 +7,10 @@ plugins {
 group = "io.github.demo.spring"
 version = "0.0.1-SNAPSHOT"
 
-val colaVersion by extra { "4.3.1" }
-val fastjsonVersion by extra { "2.0.11" }
-val mybatisSpringBootVersion by extra { "2.2.2" }
+val colaVersion by extra("4.3.1")
+val fastjsonVersion by extra("2.0.11")
+val mybatisSpringBootVersion by extra("2.2.2")
+val testcontainersVersion by extra("1.17.3")
 java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(17))
@@ -26,8 +27,10 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:$mybatisSpringBootVersion")
+    implementation("org.flywaydb:flyway-core")
+    implementation("org.flywaydb:flyway-mysql")
 
-    runtimeOnly ("mysql:mysql-connector-java")
+    runtimeOnly("mysql:mysql-connector-java")
 
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
@@ -40,6 +43,9 @@ dependencies {
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.mybatis.spring.boot:mybatis-spring-boot-starter-test:$mybatisSpringBootVersion")
+    testImplementation(platform("org.testcontainers:testcontainers-bom:$testcontainersVersion"))
+    testImplementation("org.testcontainers:junit-jupiter")
+    testImplementation("org.testcontainers:mysql")
 }
 
 tasks.test {

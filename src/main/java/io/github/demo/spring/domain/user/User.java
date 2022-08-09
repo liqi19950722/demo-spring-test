@@ -1,4 +1,4 @@
-package io.github.demo.spring.domain;
+package io.github.demo.spring.domain.user;
 
 import lombok.Data;
 
