@@ -5,6 +5,8 @@ import io.github.demo.spring.repository.mybatis.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * @author qi.li
  * @email liq@hzgjgc.com
@@ -19,4 +21,7 @@ public class Users {
     private UserMapper userMapper;
 
 
+    public List<User> getAll() {
+        return userMapper.selectAll();
+    }
 }

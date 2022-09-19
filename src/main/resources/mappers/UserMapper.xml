@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="io.github.demo.spring.repository.mybatis.UserMapper">
     <resultMap id="Base_Result_Map" type="io.github.demo.spring.domain.user.User">
-        <id column="id" jdbcType="BIGINT"/>
+        <id column="id"  jdbcType="BIGINT" property="id"/>
         <result column="name" jdbcType="VARCHAR" javaType="string" property="name"/>
         <result column="age" jdbcType="INTEGER" javaType="integer" property="age"/>
         <result column="email" jdbcType="VARCHAR" javaType="string" property="email"/>
