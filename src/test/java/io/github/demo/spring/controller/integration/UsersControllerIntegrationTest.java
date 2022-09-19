@@ -1,10 +1,13 @@
 package io.github.demo.spring.controller.integration;
 
+import io.github.demo.spring.controller.UsersController;
+import io.github.demo.spring.domain.user.Users;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.jdbc.Sql;
@@ -20,9 +23,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @email liq@hzgjgc.com
  * @since 2022/9/19
  */
-@SpringBootTest
+@SpringBootTest(classes = TestConfig.class)
 @AutoConfigureMockMvc
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+@Import(value = {UsersController.class, Users.class})
 public class UsersControllerIntegrationTest {
     @Autowired
     MockMvc mockMvc;
